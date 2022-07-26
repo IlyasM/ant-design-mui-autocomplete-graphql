@@ -1,0 +1,13 @@
+schema: http://152.228.215.94:83/api
+documents: ./src/**/*.graphql
+generates:
+  ./src/generated/generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-query
+    config:
+      fetcher:
+        #path relative to your generated file
+        func: "../fetcher#useFetchData"
+        isReactHook: true
